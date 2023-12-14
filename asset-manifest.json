@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MuratKosheterov/E-Commerse-with-Redux-Toolkit/static/css/main.0effe999.css",
+    "main.js": "/MuratKosheterov/E-Commerse-with-Redux-Toolkit/static/js/main.4f52d491.js",
+    "index.html": "/MuratKosheterov/E-Commerse-with-Redux-Toolkit/index.html",
+    "main.0effe999.css.map": "/MuratKosheterov/E-Commerse-with-Redux-Toolkit/static/css/main.0effe999.css.map",
+    "main.4f52d491.js.map": "/MuratKosheterov/E-Commerse-with-Redux-Toolkit/static/js/main.4f52d491.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0effe999.css",
+    "static/js/main.4f52d491.js"
+  ]
+}
