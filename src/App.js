@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from "react";
+import {  useSelector } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CheckOut from "./components.js/CheckOut";
+import Navbar from "./components.js/Navbar";
+import Sidebar from "./components.js/Sidebar";
+import Home from "./pages/Home";
+import ProductID from "./pages/ProductID";
+const LazyProducts = lazy(() => import("../src/pages/Products"));
 
 function App() {
+  const { isOpen } = useSelector((state) => state.sidebar);
+  console.log('rendered');
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="shop"
+            element={
+              <Suspense fallback="Please wait, is loading...">
+                <LazyProducts />
+              </Suspense>
+            }
+          />
+          <Route path="product/:id" element={<ProductID />} />
+          <Route path="checkout" element={<CheckOut/> } />
+        </Routes>
+          
+        {isOpen && <Sidebar />}
+      </BrowserRouter>
     </div>
   );
 }
